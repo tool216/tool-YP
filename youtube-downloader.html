@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HD YouTube Video Downloader | फास्ट और आसान</title>
+    <style>
+        /* CSS स्टाइलिंग */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ff4e50, #f9d423);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ff0000;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 i {
+            color: #ff0000;
+            margin-right: 15px;
+        }
+
+        .tagline {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .input-group {
+            display: flex;
+            margin-bottom: 25px;
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-group input {
+            flex: 1;
+            padding: 20px;
+            border: none;
+            outline: none;
+            font-size: 1.1rem;
+            background: #fff;
+        }
+
+        .input-group button {
+            padding: 0 30px;
+            background: #ff0000;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .input-group button:hover {
+            background: #cc0000;
+            transform: scale(1.02);
+        }
+
+        .big-button {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            margin: 15px 0;
+            background: #ff0000;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .big-button:hover {
+            background: #cc0000;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .big-button i {
+            margin-right: 10px;
+        }
+
+        .result-box {
+            margin: 30px 0;
+            padding: 25px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            color: #333;
+            display: none;
+        }
+
+        .video-info {
+            display: flex;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+
+        .thumbnail {
+            width: 250px;
+            height: 150px;
+            border-radius: 10px;
+            margin-right: 25px;
+            object-fit: cover;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-details h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #ff0000;
+        }
+
+        .download-options {
+            margin-top: 25px;
+        }
+
+        .download-options h4 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            color: #ff0000;
+        }
+
+        .quality-btn {
+            padding: 12px 25px;
+            margin: 0 10px 10px 0;
+            background: #ff0000;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .quality-btn:hover {
+            background: #cc0000;
+            transform: translateY(-2px);
+        }
+
+        .ad-space {
+            margin: 40px 0;
+            text-align: center;
+            background: #f1f1f1;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .ad-space p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .ad-content {
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .ad-content img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #fff;
+            font-size: 1rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .video-info {
+                flex-direction: column;
+            }
+            
+            .thumbnail {
+                width: 100%;
+                height: auto;
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .input-group {
+                flex-direction: column;
+                border-radius: 15px;
+            }
+            
+            .input-group input,
+            .input-group button {
+                width: 100%;
+                border-radius: 0;
+                padding: 15px;
+            }
+            
+            .input-group button {
+                padding: 15px;
+            }
+            
+            .quality-btn {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fab fa-youtube"></i> YouTube HD Video Downloader</h1>
+        <p class="tagline">1080p, 720p, 480p में हाई क्वालिटी वीडियो डाउनलोड करें</p>
+        
+        <div class="input-group">
+            <input type="text" id="video-url" placeholder="YouTube वीडियो लिंक यहाँ पेस्ट करें...">
+            <button id="download-btn"><i class="fas fa-download"></i> डाउनलोड</button>
+        </div>
+
+        <button class="big-button" id="search-btn">
+            <i class="fas fa-search"></i> YouTube पर वीडियो खोजें
+        </button>
+
+        <div id="result" class="result-box"></div>
+        
+        <!-- विज्ञापन स्थान 1 -->
+        <div class="ad-space">
+            <p>ADVERTISEMENT</p>
+            <div class="ad-content">
+                <!-- यहाँ आपकी Adsense code आएगी -->
+                <img src="https://via.placeholder.com/728x90?text=Ad+Space+1" alt="Ad">
+            </div>
+        </div>
+
+        <!-- विज्ञापन स्थान 2 -->
+        <div class="ad-space">
+            <p>ADVERTISEMENT</p>
+            <div class="ad-content">
+                <!-- यहाँ आपकी Adsense code आएगी -->
+                <img src="https://via.placeholder.com/300x250?text=Ad+Space+2" alt="Ad">
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2023 YouTube HD Video Downloader | सभी अधिकार सुरक्षित</p>
+    </footer>
+
+    <script>
+        // JavaScript कोड
+        document.getElementById('download-btn').addEventListener('click', function() {
+            const videoUrl = document.getElementById('video-url').value.trim();
+            
+            if (!videoUrl) {
+                alert('कृपया YouTube वीडियो का URL पेस्ट करें');
+                return;
+            }
+            
+            if (!isValidYouTubeUrl(videoUrl)) {
+                alert('कृपया वैध YouTube URL दर्ज करें');
+                return;
+            }
+            
+            showLoading();
+            fetchVideoInfo(videoUrl);
+        });
+
+        document.getElementById('search-btn').addEventListener('click', function() {
+            const query = prompt('खोजने के लिए कीवर्ड दर्ज करें:');
+            
+            if (query) {
+                window.open(`https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`, '_blank');
+            }
+        });
+
+        function isValidYouTubeUrl(url) {
+            const pattern = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/;
+            return pattern.test(url);
+        }
+
+        function showLoading() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.style.display = 'block';
+            resultDiv.innerHTML = `
+                <div style="text-align: center; padding: 30px;">
+                    <i class="fas fa-spinner fa-spin" style="font-size: 3rem; color: #ff0000; margin-bottom: 20px;"></i>
+                    <h3 style="color: #ff0000;">वीडियो जानकारी लोड हो रही है...</h3>
+                    <p>कृपया प्रतीक्षा करें</p>
+                </div>
+            `;
+        }
+
+        function fetchVideoInfo(url) {
+            // डेमो के लिए - वास्तविक एप्लिकेशन में आपको एक वास्तविक API का उपयोग करना चाहिए
+            setTimeout(() => {
+                const resultDiv = document.getElementById('result');
+                resultDiv.innerHTML = `
+                    <div class="video-info">
+                        <img src="https://i.ytimg.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Thumbnail" class="thumbnail">
+                        <div class="video-details">
+                            <h3>डेमो वीडियो: YouTube Video Downloader</h3>
+                            <p>यह एक डेमो वीडियो है। वास्तविक वेबसाइट में, यहाँ वास्तविक वीडियो की जानकारी दिखाई देगी</p>
+                            <p><strong>अवधि:</strong> 3:45 | <strong>व्यूज:</strong> 1.2M</p>
+                        </div>
+                    </div>
+                    <div class="download-options">
+                        <h4><i class="fas fa-download"></i> डाउनलोड विकल्प:</h4>
+                        <button class="quality-btn">1080p HD (Full HD)</button>
+                        <button class="quality-btn">720p HD (HD Ready)</button>
+                        <button class="quality-btn">480p (Standard)</button>
+                        <button class="quality-btn">360p (Low Quality)</button>
+                        <button class="quality-btn">MP3 (Audio Only)</button>
+                    </div>
+                    <p style="color: red; margin-top: 20px; text-align: center;">
+                        <i class="fas fa-info-circle"></i> नोट: यह एक डेमो है। वास्तविक इम्प्लीमेंटेशन के लिए YouTube डाउनलोड API की आवश्यकता होगी
+                    </p>
+                `;
+                
+                // डाउनलोड बटन क्लिक इवेंट
+                document.querySelectorAll('.quality-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        alert(`वास्तविक वेबसाइट में, यह बटन "${this.textContent}" क्वालिटी में डाउनलोड शुरू कर देगा`);
+                    });
+                });
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
